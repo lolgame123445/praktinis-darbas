@@ -20,107 +20,147 @@ int main()
 {
     int veiksmas = 0;
     double eur=0;
-    cout <<"......................................"<<endl;
-    cout <<"Sveiki atvyke i valiuto keitimo menu!"<<endl;
-    cout <<"           Kuo galime padeti?        "<<endl;
-    cout<<"1.Valutio palyginimo funkcija"<<endl;
-    cout<<"2.Euru iskeitimo i valiuta funkcija"<<endl;
-    cout<<"3.Valiuto pardavimo i eurus funkcija"<<endl;
-    cout<<"4.Iseiti"<<endl;
-    cout<<"........................................"<<endl;
-    cin>>veiksmas;
     cout << fixed << setprecision(2);
-   if (veiksmas <1 || veiksmas > 4)
-   {
-       cout<<"ivedete neteisinga veiksma"<<endl;
-   }
-    if (veiksmas == 1)
+    do
     {
-        int kuval;
-        cout<<"iveskite koki valiuta norite palygintis su eurais: "<<endl;
-        cout<<"1.GBP"<<endl;
-        cout<<"2.USD"<<endl;
-        cout<<"3.INR"<<endl;
-        cin >> kuval;
-        cout<<"iveskite kiek norite palyginti euru?"<<endl;
-        cin >>eur;
-        double rez=0;
-        if (kuval == 1)
+        cout <<"......................................"<<endl;
+        cout <<"Sveiki atvyke i valiuto keitimo menu!"<<endl;
+        cout <<"           Kuo galime padeti?        "<<endl;
+        cout<<"1.Valutio palyginimo funkcija"<<endl;
+        cout<<"2.Euru iskeitimo i valiuta funkcija"<<endl;
+        cout<<"3.Valiuto pardavimo i eurus funkcija"<<endl;
+        cout<<"4.Iseiti"<<endl;
+        cout<<"........................................"<<endl;
+        cin>>veiksmas;
+        if (veiksmas <1 || veiksmas > 4)
         {
-            rez=GBP_Bendras*eur;
-            cout<<"eurai: "<<eur<<" GBP konvertacija: "<<rez<<endl;
-            
+            cout<<"atsiprasome bet veiksmas neegzistuoja musu sistemoje."<<endl;
+            continue;
         }
-        else if (kuval == 2)
-        {
-            rez=USD_Bendras*eur;
-            cout<<"eurai: "<<eur<<" USD konvertacija: "<<rez<<endl;
-        }
-        else if (kuval == 3)
-        {
-            rez=INR_Bendras*eur;
-            cout<<"eurai: "<<eur<<" INR konvertacija: "<<rez<<endl;
-        }
-    }
-    else if (veiksmas == 2)
-    {
-        double rez=0;
-        int kuval;
-        cout <<"I koki valiuta norite iskeisti eurus: "<<endl;
-        cout<<"1.GBP"<<endl;
-        cout<<"2.USD"<<endl;
-        cout<<"3.INR"<<endl;
-        cin >> kuval;
-        cout<<"Iveskite kiek euru norite iskeisti i valiuta: "<<endl;
-        cin >> eur;
-        if (kuval == 1)
-        {
-            rez=GBP_Pirkti*eur;
-            cout<<"Euru: "<<eur<<" GBP nupirkta: "<<rez<<endl;
-        }
-        else if (kuval == 2)
-        {
-            rez=USD_Pirkti*eur;
-            cout<<"Euru: "<<eur<<" USD nupirkta: "<<rez<<endl;
-        }
-        else if (kuval == 3)
-        {
-            rez=INR_Pirkti*eur;
-            cout<<"Euru: "<<eur<<" INR nupirkta: "<<rez<<endl;
-        }
-    }
-    else if (veiksmas == 3)
-    {
-        int kuval;
-        double rez=0;
-        cout<<"Iveskite koki valiuta norite iskeisti i eurus: "<<endl;
-        cout<<"1.GBP"<<endl;
-        cout<<"2.USD"<<endl;
-        cout<<"3.INR"<<endl;
-        cin >> kuval;
-        cout<<"Iveskite kiek norite valiuto pinigu iskeisti i eurus: "<<endl;
-        cin >> eur;
-        if (kuval == 1)
-        {
-            rez=GBP_Parduoti*eur;
-            cout<<"valiuto: "<<eur<<" GBP parduota: "<<rez<<endl;
-        }
-        else if (kuval == 2)
-        {
-            rez=USD_Parduoti*eur;
-            cout<<"valiuto: "<<eur<<" USD parduota: "<<rez<<endl;
-        }
-        else if (kuval == 3)
-        {
-            rez=INR_Parduoti*eur;
-            cout<<"valiuto: "<<eur<<" INR parduota: "<<rez<<endl;
-        }
-    }
-    else if (veiksmas == 4)
-    {
-        cout<<"Aciu jog renkatese mus!"<<endl;
-    }
 
 
+        if (veiksmas == 1)
+        {
+            int kuval;
+            do
+            {
+                cout<<"pasirinkite valiuto palyginima:"<<endl;
+                cout<<"1.GBP"<<endl;
+                cout<<"2.USD"<<endl;
+                cout<<"3.INR"<<endl;
+                cout << "----------------------------------------" << endl;
+                cin>>kuval;
+                if (kuval <1 || kuval > 3)
+                {
+                    cout <<"atsiprasome bet tokia valiuta neegzistuoja."<<endl;
+                }
+            }
 
+            while (kuval < 1 || kuval > 3);
+
+            if (kuval == 1)
+            {
+                cout << "1 EUR = " << GBP_Bendras << " GBP" << endl;
+                cout << "1 GBP = " << (1.0 / GBP_Bendras) << " EUR" << endl;
+            }
+            else if (kuval == 2)
+            {
+                cout << "1 EUR = " << USD_Bendras << " USD" << endl;
+                cout << "1 USD = " << (1.0 / USD_Bendras) << " EUR" << endl;
+            }
+            else if (kuval == 3)
+            {
+                cout << "1 EUR = " << INR_Bendras << " INR" << endl;
+                cout << "1 INR = " << (1.0 / INR_Bendras) << " EUR" << endl;
+            }
+            cout << "----------------------------------------" << endl;
+        }
+        else if (veiksmas == 2)
+        {
+            double rez=0;
+            int kuval;
+            do
+            {
+                cout <<"I koki valiuta norite iskeisti eurus: "<<endl;
+                cout<<"1.GBP"<<endl;
+                cout<<"2.USD"<<endl;
+                cout<<"3.INR"<<endl;
+                cin >> kuval;
+                cout<<"Iveskite kiek euru norite iskeisti i valiuta: "<<endl;
+                cin >> eur;
+                if (kuval <1 || kuval > 3)
+                {
+                    cout<<"valiutas neegzistuoja rinkites dar karta is naujo."<<endl;
+                }
+                if (eur < 0)
+                {
+                    cout << "Ivesta pinigu suma negali buti neigama."<<endl;
+                }
+            }
+            while (kuval < 1 || kuval > 3 || eur < 0);
+            if (kuval == 1)
+            {
+                rez=GBP_Pirkti*eur;
+                cout<<"Euru: "<<eur<<" GBP nupirkta: "<<rez<<endl;
+            }
+            else if (kuval == 2)
+            {
+                rez=USD_Pirkti*eur;
+                cout<<"Euru: "<<eur<<" USD nupirkta: "<<rez<<endl;
+            }
+            else if (kuval == 3)
+            {
+                rez=INR_Pirkti*eur;
+                cout<<"Euru: "<<eur<<" INR nupirkta: "<<rez<<endl;
+            }
+
+        }
+        else if (veiksmas == 3)
+        {
+            int kuval;
+            double rez=0;
+            do
+            {
+                cout<<"Iveskite koki valiuta norite iskeisti i eurus: "<<endl;
+                cout<<"1.GBP"<<endl;
+                cout<<"2.USD"<<endl;
+                cout<<"3.INR"<<endl;
+                cin >> kuval;
+                cout<<"Iveskite kiek norite valiuto pinigu iskeisti i eurus: "<<endl;
+                cin >> eur;
+                if (kuval <1 || kuval > 3)
+                {
+                    cout<<"Atsiprasome bet toks valiutas neegzistuoja."<<endl;
+                }
+                if (eur < 0)
+                {
+                    cout<<"Euru suma negali buti neigiama."<<endl;
+                }
+            }
+            while (kuval < 1 || kuval > 3 || eur < 0);
+
+            if (kuval == 1)
+            {
+                rez=eur/GBP_Parduoti;
+                cout << "Parduota: " << eur << " GBP | Gauta: " << rez << " EUR" << endl;
+            }
+            else if (kuval == 2)
+            {
+                rez=eur/USD_Parduoti;
+                cout << "Parduota: " << eur << " USD | Gauta: " << rez << " EUR" << endl;
+            }
+            else if (kuval == 3)
+            {
+                rez=eur/INR_Parduoti;
+                cout << "Parduota: " << eur << " INR | Gauta: " << rez << " EUR" << endl;
+            }
+        }
+        else if (veiksmas == 4)
+        {
+            cout<<"Aciu jog renkatese mus!"<<endl;
+        }
+    }
+    while (veiksmas!=4);
+
+    return 0;
 }
