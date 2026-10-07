@@ -32,6 +32,14 @@ int main()
         cout<<"4.Iseiti"<<endl;
         cout<<"........................................"<<endl;
         cin>>veiksmas;
+        if (cin.fail())
+        {
+            cin.clear();
+            cin.ignore(10000, '\n');
+            cout << "KLAIDA: Ivedete raide arba neteisinga simboli! Bandykite vel." << endl;
+            veiksmas = 0;
+            continue;
+        }
         if (veiksmas <1 || veiksmas > 4)
         {
             cout<<"atsiprasome bet veiksmas neegzistuoja musu sistemoje."<<endl;
@@ -50,6 +58,14 @@ int main()
                 cout<<"3.INR"<<endl;
                 cout << "----------------------------------------" << endl;
                 cin>>kuval;
+                if (cin.fail())
+                {
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                    cout << "KLAIDA: Ivedete raide! Bandykite vel." << endl;
+                    kuval = 0;
+                    continue;
+                }
                 if (kuval <1 || kuval > 3)
                 {
                     cout <<"atsiprasome bet tokia valiuta neegzistuoja."<<endl;
@@ -86,8 +102,24 @@ int main()
                 cout<<"2.USD"<<endl;
                 cout<<"3.INR"<<endl;
                 cin >> kuval;
+                if (cin.fail())
+                {
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                    cout << "KLAIDA: Valiutos pasirinkimui ivedete raide!" << endl;
+                    kuval = 0;
+                    continue;
+                }
                 cout<<"Iveskite kiek euru norite iskeisti i valiuta: "<<endl;
                 cin >> eur;
+                if (cin.fail())
+                {
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                    cout << "KLAIDA: Valiutos pasirinkimui ivedete raide!" << endl;
+                    kuval = 0;
+                    continue;
+                }
                 if (kuval <1 || kuval > 3)
                 {
                     cout<<"valiutas neegzistuoja rinkites dar karta is naujo."<<endl;
@@ -126,8 +158,24 @@ int main()
                 cout<<"2.USD"<<endl;
                 cout<<"3.INR"<<endl;
                 cin >> kuval;
+                if (cin.fail())
+                {
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                    cout << "KLAIDA: Valiutos pasirinkimui ivedete raide!" << endl;
+                    kuval = 0;
+                    continue;
+                }
                 cout<<"Iveskite kiek norite valiuto pinigu iskeisti i eurus: "<<endl;
                 cin >> eur;
+                if (cin.fail())
+                {
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                    cout << "KLAIDA: Valiutos pasirinkimui ivedete raide!" << endl;
+                    kuval = 0;
+                    continue;
+                }
                 if (kuval <1 || kuval > 3)
                 {
                     cout<<"Atsiprasome bet toks valiutas neegzistuoja."<<endl;
