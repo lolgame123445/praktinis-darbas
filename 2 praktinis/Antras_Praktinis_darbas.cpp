@@ -54,7 +54,7 @@ int main()
             {
                 cout<<"koks yra jusu mokinio vardas? "<<endl;
                 getline(cin,mok[x]);
-                if (mok[x].empty()) //jeigu yra iveda tiesiog tarpa arba nieko yra perspejamas vartotojas
+                if (mok[x].empty()) // jeigu yra iveda tiesiog tarpa arba nieko yra perspejamas vartotojas
                 {
                     cout << "Vardas negali buti tuscias. Bandykite dar karta." << endl;
                 }
