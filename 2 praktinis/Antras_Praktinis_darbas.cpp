@@ -25,6 +25,7 @@ int main()
 
     do
     {
+        cout<<"_________Mokiniu skaicius: "<< mokskaic<<"_________"<<endl;
         cout<<"______________________________________"<<endl;
         cout<<"pasirinkite ka norite daryti"<<endl;
         cout<<"1. ivesti mokini ir jo pazymius."<<endl;
